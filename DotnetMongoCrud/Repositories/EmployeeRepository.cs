@@ -1,5 +1,7 @@
 ﻿using DotnetMongoCrud.Models;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,8 @@ namespace DotnetMongoCrud.Repositories
 
         public async Task<IList<Employee>> EmployeeList()
         {
-            return await collection.Find(_ => true).ToListAsync();
+            //return await collection.Find(_ => true).ToListAsync();
+            return await collection.Find(new BsonDocument()).ToListAsync();
         }
 
         public async Task<Employee> GetEmployee(string id)

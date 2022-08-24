@@ -42,7 +42,7 @@ namespace DotnetMongoCrud.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> UpdateEmployee(string id, Employee employee)
+        public async Task<IActionResult> UpdateEmployee(Employee employee)
         {
             await employeeRepository.UpdateEmployee(employee);
             return Ok("Employee updated successfully!");
